@@ -188,6 +188,7 @@ textarea {
 #life-cards {
     left: 20%;
     height: 60%;
+    margin-bottom: 1em;
     overflow: hidden;
     position: absolute;
     top: 20%;
@@ -260,6 +261,7 @@ textarea {
     background: silver;
     right: 20%;
     height: 60%;
+    margin-bottom: 1em;
     overflow: hidden;
     position: absolute;
     top: 20%;
@@ -378,13 +380,40 @@ textarea {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
-}
+@media only screen and (max-width: 35em) {
+    #board {
+        border: none;
+        height: auto;
+    }
+    #board ol {
+        position: static;
+    }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-       only screen and (min-resolution: 144dpi) {
-    /* Style adjustments for high resolution devices */
+    #row1, #row2, #row3, #row4 {
+        border: none;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        height: auto;
+        width: 98%;
+    }
+    #row1 li, #row2 li, #row3 li, #row4 li,
+    #row2 li:first-child {
+        border: none;
+        border-top: 1px solid black;
+        float: none;
+        width: 100%;
+    }
+    #row4 {
+        border-bottom: 1px solid black;
+    }
+
+    #life-cards, #dice {
+        position: static;
+        width: 98%;
+    }
+    #life-cards {
+        height: 360px;
+    }
 }
 
 /* ==========================================================================
