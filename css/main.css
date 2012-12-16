@@ -92,22 +92,184 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+#board {
+    border: 1px solid black;
+    box-sizing: border-box;
+    height: 600px;
+    margin: 0 auto 2% auto;
+    padding: 1%;
+    position: relative;
+    width: 75%;
+}
+#board ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+#board li {
+    box-sizing: border-box;
+    line-height: 6;
+    text-align: center;
+}
+#row1 {
+    background: red;
+    border-bottom: 1px solid black;
+    height: 16.67%;
+    left: 0;
+    top: 0;
+    width: 83.33%;
+}
+#row1 li {
+    border-left: 1px solid black;
+    float: left;
+    height: 100%;
+    width: 20%;
+}
+#row1 li:first-child {
+    border-left: none;
+}
+#row2 {
+    background: green;
+    border-left: 1px solid black;
+    height: 83.33%;
+    right: 0;
+    top: 0;
+    width: 16.67%;
+}
+#row2 li {
+    border-top: 1px solid black;
+    height: 20%;
+    width: 100%;
+}
+#row2 li:first-child {
+    border-top: none;
+}
+#row3 {
+    background: blue;
+    border-top: 1px solid black;
+    bottom: 0;
+    height: 16.67%;
+    right: 0;
+    width: 83.33%;
+}
+#row3 li {
+    border-right: 1px solid black;
+    float: right;
+    height: 100%;
+    width: 20%;
+}
+#row3 li:first-child {
+    border-right: none;
+}
+#row4 {
+    background: gray;
+    border-right: 1px solid black;
+    bottom: 0;
+    height: 83.33%;
+    left: 0;
+    width: 16.67%;
+}
+#row4 li {
+    border-top: 1px solid black;
+    height: 20%;
+    width: 100%;
+}
+#row4 li:first-child {
+    border-top: none;
+}
 
+#marker {
+    color: white;
+    font-size: 5em;
+    line-height: 1.3;
+}
 
+#life-cards {
+    left: 20%;
+    height: 60%;
+    overflow: hidden;
+    position: absolute;
+    top: 20%;
+    width: 28%;
+}
+#life-cards h3 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+#life-cards ul {
+    list-style: none;
+    height: 90%;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    width: 96%;
+}
+#life-cards.inactive {
+    opacity: 0.25;
+}
+#life-cards.active {
+    outline: 999em solid rgba( 0, 0, 0, 0.8 );
+    z-index: 10;
+}
+#life-cards li {
+    background: white;
+    border: 2px solid black;
+    border-radius: 0.35em;
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    line-height: 1.5;
+    margin: 0 0 1em 0;
+    overflow: hidden;
+    text-align: left;
+}
+#life-cards li span {
+    display: block;
+}
+#life-cards .face {
+    font-size: 3.5em;
+    text-align: center;
+}
+#life-cards .drawn {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+#life-cards .forward span {
+    color: green;
+    font-weight: bold;
+}
+#life-cards .backward span {
+    color: red;
+    font-weight: bold;
+}
+#life-cards img {
+    display: block;
+    max-height: 75%;
+    width: 100%;
+}
+#life-cards .life-event {
+    height: 25%;
+    overflow: auto;
+    padding: 0.25em 0.5em;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+#dice {
+    background: silver;
+    right: 20%;
+    height: 60%;
+    overflow: hidden;
+    position: absolute;
+    top: 20%;
+    width: 28%;
+}
+#dice h3 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
 
 /* ==========================================================================
    Helper classes
