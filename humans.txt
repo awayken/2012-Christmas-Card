@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Miles Rausch -- Lead Developer -- @awayken
+
+# THANKS
+
+    Holli Rausch, Ian Rausch, Ainsley Rausch
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    VanillaJS, Modernizr
