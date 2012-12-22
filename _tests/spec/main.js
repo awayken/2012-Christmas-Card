@@ -3,12 +3,18 @@ describe('Game', function() {
 
 	beforeEach(function() {
 		marker = new Marker();
+        die = new Die();
 	});
 
 	it("should have a marker", function() {
 		expect( Marker ).toBeDefined();
 		expect( marker ).toBeDefined();
 	});
+
+    it('should have a die', function() {
+        expect( Die ).toBeDefined();
+        expect( die ).toBeDefined();
+    })
 
     describe('marker', function() {
 
@@ -74,6 +80,24 @@ describe('Game', function() {
                 expect( box2.childNodes[ 0 ] ).toBe( marker.node );
             });
 
+        });
+
+    });
+
+    describe('die', function() {
+
+        it('should have a roll', function() {
+            expect( die.getRoll ).toBeDefined();
+            expect( die.setRoll ).toBeDefined();
+        });
+
+        it('should have getter', function() {
+            expect( die.getRoll() ).toEqual( 0 );
+        });
+
+        it('should have setter', function() {
+            die.setRoll( 4 );
+            expect( die.getRoll() ).toEqual( 4 );
         });
 
     });
