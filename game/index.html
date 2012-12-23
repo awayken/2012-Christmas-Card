@@ -26,17 +26,19 @@
         </section>
 
         <section id="board">
+            
             <section id="dice">
                 <h3>The Die</h3>
-                <button class="btn">Roll the Die</button>
-                <div class="dice-roll">
-                    You rolled <span>a <strong>six</strong>.</span>
-                </div>
+
+                <button class="btn" onclick="die.roll();">Roll the Die</button>
             </section>
             
             <section id="life-cards">
                 <h3>Life Cards</h3>
-                <ul>
+
+                <button class="btn" onclick="card.draw();">Draw a Card</button>
+
+                <ul id="life-card-list">
                     <li class="face">
                         <span>Roll</span>
                         <span>die</span>
@@ -65,35 +67,33 @@
                 </ul>
             </section>
 
-            <ol id="row1">
-                <li>
-                    <div id="marker">&#9731;</div>
-                </li>
-                <li>box 2</li>
-                <li>box 3</li>
-                <li>box 4</li>
-                <li>box 5</li>
+            <ol id="row_1">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
             </ol>
-            <ol id="row2">
-                <li>box 1</li>
-                <li>box 2</li>
-                <li>box 3</li>
-                <li>box 4</li>
-                <li>box 5</li>
+            <ol id="row_2">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
             </ol>
-            <ol id="row3">
-                <li>box 1</li>
-                <li>box 2</li>
-                <li>box 3</li>
-                <li>box 4</li>
-                <li>box 5</li>
+            <ol id="row_3">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
             </ol>
-            <ol id="row4">
-                <li>box 1</li>
-                <li>box 2</li>
-                <li>box 3</li>
-                <li>box 4</li>
-                <li>box 5</li>
+            <ol id="row_4">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
             </ol>
         </section>
 
@@ -112,7 +112,12 @@
 
         <script src="../js/plugins.js"></script>
         <script src="../js/main.js"></script>
-        <script type="text/javascript">
+        <script>
+            var marker = new Marker();
+            var die = new Die();
+            var card = new Card();
+        </script>
+        <script>
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-96981-7']);
             _gaq.push(['_setDomainName', 'milesrauschfamily.com']);
