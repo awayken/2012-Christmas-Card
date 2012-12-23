@@ -1,5 +1,34 @@
 describe('Game', function() {
 
+    describe('board', function() {
+        var board;
+
+        beforeEach(function() {
+            board = new Board();
+            spyOn( board.die, 'roll' );
+            spyOn( board.card, 'draw' );
+            spyOn( board.card, 'getLifeContainerClass' ).andReturn('active');
+        });
+
+        it('should exist', function() {
+            expect( board ).toBeDefined();
+            expect( Board ).toBeDefined();
+        });
+
+        it('should roll die', function() {
+            expect( board.rollDie ).toBeDefined();
+            board.rollDie();
+            expect( board.die.roll ).toHaveBeenCalled();
+        });
+
+        it('should draw card', function() {
+            expect( board.drawCard ).toBeDefined();
+            board.drawCard();
+            expect( board.card.draw ).toHaveBeenCalled();
+        });
+
+    });
+
     describe('marker', function() {
         var marker;
 
@@ -29,49 +58,86 @@ describe('Game', function() {
         describe('should move', function () {
 
             beforeEach(function () {
-                row = document.createElement('ol');
-                row.id = 'row_1';
+                row1 = document.createElement('ol');
+                row1.id = 'row_1';
 
-                box1 = document.createElement('li');
-                box2 = document.createElement('li');
-                box3 = document.createElement('li');
+                box_1_1 = document.createElement('li');
+                box_1_2 = document.createElement('li');
+                box_1_3 = document.createElement('li');
+                box_1_4 = document.createElement('li');
+                box_1_5 = document.createElement('li');
 
-                row.appendChild( box1 );
-                row.appendChild( box2 );
-                row.appendChild( box3 );
+                row1.appendChild( box_1_1 );
+                row1.appendChild( box_1_2 );
+                row1.appendChild( box_1_3 );
+                row1.appendChild( box_1_4 );
+                row1.appendChild( box_1_5 );
 
-                document.body.appendChild( row );
+                document.body.appendChild( row1 );
+
+                row2 = document.createElement('ol');
+                row2.id = 'row_2';
+
+                box_2_1 = document.createElement('li');
+                box_2_2 = document.createElement('li');
+                box_2_3 = document.createElement('li');
+                box_2_4 = document.createElement('li');
+                box_2_5 = document.createElement('li');
+
+                row2.appendChild( box_2_1 );
+                row2.appendChild( box_2_2 );
+                row2.appendChild( box_2_3 );
+                row2.appendChild( box_2_4 );
+                row2.appendChild( box_2_5 );
+
+                document.body.appendChild( row2 );
             });
 
             afterEach(function() {
-                document.body.removeChild( row );
+                document.body.removeChild( row1 );
+                document.body.removeChild( row2 );
             });
 
             it('to a known row and box', function () {
                 expect( marker.moveTo ).toBeDefined();
-                expect( box1.childNodes.length ).toEqual( 0 );
+                expect( box_1_1.childNodes.length ).toEqual( 0 );
                 marker.setup();
-                expect( box1.childNodes.length ).toEqual( 1 );
-                expect( box1.childNodes[ 0 ] ).toBe( marker.node );
+                expect( box_1_1.childNodes.length ).toEqual( 1 );
+                expect( box_1_1.childNodes[ 0 ] ).toBe( marker.node );
                 marker.moveTo( 0, 1 );
-                expect( box1.childNodes.length ).toEqual( 0 );
-                expect( box2.childNodes.length ).toEqual( 1 );
-                expect( box2.childNodes[ 0 ] ).toBe( marker.node );
+                expect( box_1_1.childNodes.length ).toEqual( 0 );
+                expect( box_1_2.childNodes.length ).toEqual( 1 );
+                expect( box_1_2.childNodes[ 0 ] ).toBe( marker.node );
+                marker.moveTo( 1, 0 );
+                expect( box_2_1.childNodes.length ).toEqual( 1 );
+                expect( box_2_1.childNodes[ 0 ] ).toBe( marker.node );
+                marker.moveTo( 1, 4 );
+                expect( box_2_5.childNodes.length ).toEqual( 1 );
+                expect( box_2_5.childNodes[ 0 ] ).toBe( marker.node );
             });
 
             it('by a number of spaces', function () {
                 expect( marker.move ).toBeDefined();
                 marker.setup();
-                expect( box1.childNodes.length ).toEqual( 1 );
-                expect( box1.childNodes[ 0 ] ).toBe( marker.node );
+                expect( box_1_1.childNodes.length ).toEqual( 1 );
+                expect( box_1_1.childNodes[ 0 ] ).toBe( marker.node );
                 marker.move( 2 );
-                expect( box1.childNodes.length ).toEqual( 0 );
-                expect( box3.childNodes.length ).toEqual( 1 );
-                expect( box3.childNodes[ 0 ] ).toBe( marker.node );
+                expect( box_1_1.childNodes.length ).toEqual( 0 );
+                expect( box_1_3.childNodes.length ).toEqual( 1 );
+                expect( box_1_3.childNodes[ 0 ] ).toBe( marker.node );
                 marker.move( -1 );
-                expect( box3.childNodes.length ).toEqual( 0 );
-                expect( box2.childNodes.length ).toEqual( 1 );
-                expect( box2.childNodes[ 0 ] ).toBe( marker.node );
+                expect( box_1_3.childNodes.length ).toEqual( 0 );
+                expect( box_1_2.childNodes.length ).toEqual( 1 );
+                expect( box_1_2.childNodes[ 0 ] ).toBe( marker.node );
+                marker.move( -4 );
+                expect( box_1_1.childNodes.length ).toEqual( 1 );
+                expect( box_1_1.childNodes[ 0 ] ).toBe( marker.node );
+                marker.move( 6 );
+                expect( box_2_2.childNodes.length ).toEqual( 1 );
+                expect( box_2_2.childNodes[ 0 ] ).toBe( marker.node );
+                marker.move( 3 );
+                expect( box_2_5.childNodes.length ).toEqual( 1 );
+                expect( box_2_5.childNodes[ 0 ] ).toBe( marker.node );
             });
 
         });
@@ -147,17 +213,36 @@ describe('Game', function() {
         });
 
         it('should have a currentCard', function() {
-            expect( card.getCurrentCard ).toBeDefined();
-            expect( card.setCurrentCard ).toBeDefined();
+            expect( card.currentCard ).toBeDefined();
         });
 
-        it('should have getter', function() {
-            expect( card.getCurrentCard() ).toEqual( 0 );
+        it('should life card container class accessors', function() {
+            expect( card.setLifeContainerClass ).toBeDefined();
+            expect( card.getLifeContainerClass ).toBeDefined();
         });
 
-        it('should have setter', function() {
-            card.setCurrentCard( 2 );
-            expect( card.getCurrentCard() ).toEqual( 2 );
+        it('should activate a specific card', function() {
+            life_cards = document.createElement('ul');
+            life_cards.id = 'life-card-list';
+
+            card1 = document.createElement('li');
+            card2 = document.createElement('li');
+            card3 = document.createElement('li');
+
+            life_cards.appendChild( card1 );
+            life_cards.appendChild( card2 );
+            life_cards.appendChild( card3 );
+
+            document.body.appendChild( life_cards );
+
+            card.setup();
+
+            expect( card.activate ).toBeDefined();
+            expect( card2.className ).toEqual('');
+            card.activate( 1 );
+            expect( card2.className ).toContain('drawn');
+
+            document.body.removeChild( life_cards );
         });
 
         describe('should draw', function () {
@@ -186,7 +271,7 @@ describe('Game', function() {
             it('and display that card', function() {
                 var card_node;
                 card.draw();
-                card_node = document.getElementById('life-card-list').getElementsByTagName('li')[ card.getCurrentCard() ];
+                card_node = document.getElementById('life-card-list').getElementsByTagName('li')[ card.currentCard ];
                 expect( card_node.className ).toContain( 'drawn' );
             });
 

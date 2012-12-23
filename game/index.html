@@ -26,24 +26,24 @@
         </section>
 
         <section id="board">
-            
+
             <section id="dice">
                 <h3>The Die</h3>
 
-                <button class="btn" onclick="die.roll();">Roll the Die</button>
+                <button class="btn" onclick="board.rollDie();">Roll the Die</button>
             </section>
             
             <section id="life-cards">
                 <h3>Life Cards</h3>
 
-                <button class="btn" onclick="card.draw();">Draw a Card</button>
+                <button class="btn" onclick="board.drawCard();">Draw a Card</button>
 
                 <ul id="life-card-list">
                     <li class="face">
                         <span>Roll</span>
                         <span>die</span>
                         <span>first</span>
-                        <span>&#9758;</span>
+                        <span>&#9756;</span>
                     </li>
                     <li class="miles forward">
                         <img src="http://placekitten.com/400/400">
@@ -113,9 +113,7 @@
         <script src="../js/plugins.js"></script>
         <script src="../js/main.js"></script>
         <script>
-            var marker = new Marker();
-            var die = new Die();
-            var card = new Card();
+            var board = new Board();
         </script>
         <script>
             var _gaq = _gaq || [];
