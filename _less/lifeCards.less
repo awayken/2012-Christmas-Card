@@ -1,0 +1,81 @@
+#life-cards {
+    right: 23%;
+    height: 30%;
+    margin-bottom: 1em;
+    overflow: hidden;
+    position: absolute;
+    top: 12%;
+    width: 32%;
+}
+#life-cards h3 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+#life-cards ul {
+    list-style: none;
+    height: 80%;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    width: 96%;
+}
+#life-cards.inactive {
+    opacity: 0.25;
+}
+#life-cards.active {
+    outline: 999em solid rgba( 0, 0, 0, 0.8 );
+    z-index: 10;
+}
+#life-cards li {
+    background: white;
+    border: 2px solid black;
+    border-radius: 0.35em;
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    line-height: 1.5;
+    margin: 0 0 1em 0;
+    overflow: hidden;
+    text-align: left;
+}
+#life-cards li span {
+    display: block;
+}
+#life-cards .face {
+    font-size: 3em;
+    text-align: center;
+}
+#life-cards .drawn {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+#life-cards .forward span {
+    color: green;
+    font-weight: bold;
+}
+#life-cards .backward span {
+    color: red;
+    font-weight: bold;
+}
+#life-cards img {
+    display: block;
+    max-height: 75%;
+    width: 100%;
+}
+#life-cards .life-event {
+    height: 25%;
+    overflow: auto;
+    padding: 0.25em 0.5em;
+}
+
+@media only screen and (max-width: 35em) {
+    #life-cards, #dice {
+        position: static;
+        width: 98%;
+    }
+    #life-cards {
+        height: 360px;
+    }
+}
