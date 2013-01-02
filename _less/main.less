@@ -1,28 +1,22 @@
-/**
+@primaryColor: #028E9B;	// Teal
+@compColor: #FF7800;	// Orange
 
-*** Primary Color:
-
-   var. 1 = #028E9B = rgb(2,142,155)
-   var. 2 = #1E6D74 = rgb(30,109,116)
-   var. 3 = #015C65 = rgb(1,92,101)
-   var. 4 = #35C0CD = rgb(53,192,205)
-   var. 5 = #5EC4CD = rgb(94,196,205)
-
-*** Complementary Color:
-
-   var. 1 = #FF7800 = rgb(255,120,0)
-   var. 2 = #BF7330 = rgb(191,115,48)
-   var. 3 = #A64E00 = rgb(166,78,0)
-   var. 4 = #FF9A40 = rgb(255,154,64)
-   var. 5 = #FFB573 = rgb(255,181,115)
-
-   */
-
+@import "mixins.less";
 @import "h5bp.less";
 
-/*
-define colors
-*/
+a {
+	&:link, &:visited {
+		color: @primaryColor;
+		text-decoration: none;
+	}
+	&:hover, &:active {
+		text-decoration: underline;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: @compColor;
+}
 
 @import "board.less";
 @import "marker.less";
