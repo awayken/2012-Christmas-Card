@@ -1,10 +1,8 @@
 describe('Game', function() {
 
     describe('board', function() {
-        var board;
 
         beforeEach(function() {
-            board = new Board();
             spyOn( board.die, 'roll' );
             spyOn( board.card, 'draw' );
             spyOn( board.card, 'getLifeContainerClass' ).andReturn('active');
@@ -12,7 +10,6 @@ describe('Game', function() {
 
         it('should exist', function() {
             expect( board ).toBeDefined();
-            expect( Board ).toBeDefined();
         });
 
         it('should roll die', function() {
@@ -33,11 +30,10 @@ describe('Game', function() {
         var marker;
 
         beforeEach(function() {
-            marker = new Marker();
+            marker = board.marker;
         });
 
         it("should exist", function() {
-            expect( Marker ).toBeDefined();
             expect( marker ).toBeDefined();
         });
 
@@ -118,6 +114,7 @@ describe('Game', function() {
 
             it('by a number of spaces', function () {
                 expect( marker.move ).toBeDefined();
+                marker.moveTo( 0, 0 );
                 marker.setup();
                 expect( box_1_1.childNodes.length ).toEqual( 1 );
                 expect( box_1_1.childNodes[ 0 ] ).toBe( marker.node );
@@ -148,11 +145,10 @@ describe('Game', function() {
         var die;
 
         beforeEach(function() {
-            die = new Die();
+            die = board.die;
         });
 
         it('should exist', function() {
-            expect( Die ).toBeDefined();
             expect( die ).toBeDefined();
         });
 
@@ -184,15 +180,13 @@ describe('Game', function() {
 
             it('and set the roll value', function () {
                 expect( die.roll ).toBeDefined();
-                expect( die.getRoll() ).toEqual( 0 );
+                expect( die.getRoll() ).toEqual( 4 );
                 die.roll();
-                expect( die.getRoll() ).not.toEqual( 0 );
+                expect( die.getRoll() ).not.toMatch(/0-9+/);
             });
 
             it('and display that roll value', function() {
-                expect( die.node.className ).toEqual( 'side_0' );
                 die.roll();
-                expect( die.node.className ).not.toEqual( 'side_0' );
                 expect( die.node.className ).toEqual( 'side_' + die.getRoll() );
             });
 
@@ -204,11 +198,10 @@ describe('Game', function() {
         var card;
 
         beforeEach(function() {
-            card = new Card();
+            card = board.card;
         });
 
         it('should exist', function() {
-            expect( Card ).toBeDefined();
             expect( card ).toBeDefined();
         });
 

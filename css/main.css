@@ -1,3 +1,23 @@
+/**
+
+*** Primary Color:
+
+   var. 1 = #028E9B = rgb(2,142,155)
+   var. 2 = #1E6D74 = rgb(30,109,116)
+   var. 3 = #015C65 = rgb(1,92,101)
+   var. 4 = #35C0CD = rgb(53,192,205)
+   var. 5 = #5EC4CD = rgb(94,196,205)
+
+*** Complementary Color:
+
+   var. 1 = #FF7800 = rgb(255,120,0)
+   var. 2 = #BF7330 = rgb(191,115,48)
+   var. 3 = #A64E00 = rgb(166,78,0)
+   var. 4 = #FF9A40 = rgb(255,154,64)
+   var. 5 = #FFB573 = rgb(255,181,115)
+
+   */
+
 /*
  * HTML5 Boilerplate
  *
@@ -18,8 +38,13 @@ textarea {
     color: #222;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     font-size: 1em;
+    height: 100%;
     line-height: 1.4;
 }
 
@@ -93,13 +118,12 @@ textarea {
    Author's custom styles
    ========================================================================== */
 #board {
-    border: 1px solid black;
     box-sizing: border-box;
-    height: 600px;
+    height: 200%;
     margin: 0 auto 2% auto;
     padding: 1%;
     position: relative;
-    width: 75%;
+    width: 80%;
 }
 #board ol {
     list-style: none;
@@ -114,8 +138,9 @@ textarea {
 }
 #row_1 {
     background: red;
-    border-bottom: 1px solid black;
-    height: 16.67%;
+    border: 1px solid black;
+    border-right: none;
+    height: 9%;
     left: 0;
     top: 0;
     width: 83.33%;
@@ -131,8 +156,9 @@ textarea {
 }
 #row_2 {
     background: green;
-    border-left: 1px solid black;
-    height: 83.33%;
+    border: 1px solid black;
+    border-bottom: none;
+    height: 45%;
     right: 0;
     top: 0;
     width: 16.67%;
@@ -147,9 +173,10 @@ textarea {
 }
 #row_3 {
     background: blue;
-    border-top: 1px solid black;
-    bottom: 0;
-    height: 16.67%;
+    border: 1px solid black;
+    border-left: none;
+    top: 45%;
+    height: 9%;
     right: 0;
     width: 83.33%;
 }
@@ -164,9 +191,10 @@ textarea {
 }
 #row_4 {
     background: gray;
-    border-right: 1px solid black;
-    bottom: 0;
-    height: 83.33%;
+    border: 1px solid black;
+    border-bottom: none;
+    top: 45%;
+    height: 45%;
     left: 0;
     width: 16.67%;
 }
@@ -178,6 +206,23 @@ textarea {
 #row_4 li:first-child {
     border-top: none;
 }
+#row_5 {
+    background: yellow;
+    border: 1px solid black;
+    height: 9%;
+    left: 0;
+    top: 90%;
+    width: 83.33%;
+}
+#row_5 li {
+    border-left: 1px solid black;
+    float: left;
+    height: 100%;
+    width: 20%;
+}
+#row_5 li:first-child {
+    border-left: none;
+}
 
 #marker {
     color: white;
@@ -186,13 +231,13 @@ textarea {
 }
 
 #life-cards {
-    right: 20%;
-    height: 60%;
+    right: 23%;
+    height: 30%;
     margin-bottom: 1em;
     overflow: hidden;
     position: absolute;
-    top: 20%;
-    width: 28%;
+    top: 12%;
+    width: 32%;
 }
 #life-cards h3 {
     margin: 0;
@@ -259,13 +304,13 @@ textarea {
 
 #dice {
     background: silver;
-    left: 20%;
-    height: 60%;
+    left: 6%;
+    height: 30%;
     margin-bottom: 1em;
     overflow: hidden;
     position: absolute;
-    top: 20%;
-    width: 28%;
+    top: 12%;
+    width: 32%;
 }
 #dice h3 {
     margin: 0;
