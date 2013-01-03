@@ -18,25 +18,20 @@
         this.die = new Die();
         this.card = new Card();
 
-        this.card.setLifeContainerClass('inactive');
+        //this.card.disableButton();
     };
     Board.prototype.rollDie = function() {
         this.die.roll();
-        this.card.setLifeContainerClass('active');
+        //this.card.enableButton();
     };
     Board.prototype.drawCard = function() {
         //var self = this;
 
-        if ( this.card.getLifeContainerClass() === 'active' ) {
+        //if ( this.card.getLifeContainerClass() === 'active' ) {
             this.card.draw();
             this.card.setLifeContainerClass('');
             this.marker.move( this.die.getRoll() );
-
-            window.setTimeout(function() {
-                //self.card.setLifeContainerClass('inactive');
-                //self.card.activate( 0 );
-            }, 3000 );
-        }
+        //}
     };
 
     /******************************************************************************

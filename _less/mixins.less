@@ -1,5 +1,23 @@
 // My Mixins
 // -------------------------
+.littleBoxes( @color ) {
+	@colorHue: hue( @color );
+	li {
+		background: hsl( @colorHue, 70%, 35% );;
+	}
+	li + li {
+		background: hsl( hue( spin( @color, 10% ) ), 70%, 35% );
+	}
+	li + li + li {
+		background: hsl( hue( spin( @color, 20% ) ), 70%, 35% );
+	}
+	li + li + li + li {
+		background: hsl( hue( spin( @color, 30% ) ), 70%, 35% );
+	}
+	li + li + li + li + li {
+		background: hsl( hue( spin( @color, 40% ) ), 70%, 35% );
+	}
+}
 
 
 // Twitter Bootstrap Mixins
@@ -153,3 +171,4 @@
     background-image: linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
   }
 }
+
