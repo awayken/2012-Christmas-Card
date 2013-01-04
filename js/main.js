@@ -29,7 +29,7 @@
 
         //if ( this.card.getLifeContainerClass() === 'active' ) {
             this.card.draw();
-            this.card.setLifeContainerClass('');
+            //this.card.setLifeContainerClass('');
             this.marker.move( this.die.getRoll() );
         //}
     };
@@ -79,17 +79,15 @@
     // Moves the Marker to a specific position as row, box
     Marker.prototype.moveTo = function( rowIndex, boxIndex ) {
         var currentPosition = this.getPosition(),
-            oldBox,
             newBox,
-            oldRow = document.getElementById('row_' + ( currentPosition[ 0 ] + 1 ) ),
             newRow = document.getElementById('row_' + ( rowIndex + 1 ) );
 
-        if ( oldRow ) {
-            oldBox = oldRow.getElementsByTagName('li')[ currentPosition[ 1 ] ];
-            if ( oldBox ) {
-                oldBox.removeChild( this.node );
-            }
+        // animate to new position
+
+        if ( this.node && this.node.parentNode ) {
+            this.node.parentNode.removeChild( this.node );
         }
+
         if ( newRow ) {
             newBox = newRow.getElementsByTagName('li')[ boxIndex ];
             if ( newBox ) {
@@ -106,11 +104,11 @@
             newBox = currentPosition[ 1 ] + spaces;
 
         if ( newBox > 4 ) {
-            newBox = ( spaces % 5 ) - 1;
-            newRow = newRow + 1;
+            newBox = newBox % 5;
+            newRow++;
         } else if ( newBox < 0 ) {
-            newBox = spaces % -5;
-            newRow = newRow - 1;
+            newBox = newBox % -5;
+            newRow--;
         }
 
         if ( newRow > 4 ) {
