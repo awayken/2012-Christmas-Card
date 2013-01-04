@@ -5,7 +5,6 @@ describe('Game', function() {
         beforeEach(function() {
             spyOn( board.die, 'roll' );
             spyOn( board.card, 'draw' );
-            spyOn( board.card, 'getLifeContainerClass' ).andReturn('active');
         });
 
         it('should exist', function() {
@@ -199,11 +198,6 @@ describe('Game', function() {
 
         it('should have a currentCard', function() {
             expect( card.currentCard ).toBeDefined();
-        });
-
-        it('should life card container class accessors', function() {
-            expect( card.setLifeContainerClass ).toBeDefined();
-            expect( card.getLifeContainerClass ).toBeDefined();
         });
 
         it('should activate a specific card', function() {
