@@ -43,7 +43,7 @@
         // The actual DOM node that represents the marker.
         this.node = document.createElement('div');
         this.node.id = 'marker';
-        this.node.innerHTML = '&#9823;';
+        this.node.innerHTML = '&#9823;<a href="#dice" class="show-dice">Show the die</a>';
 
         this.setup();
     };
