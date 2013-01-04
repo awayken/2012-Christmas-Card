@@ -18,20 +18,16 @@
         this.die = new Die();
         this.card = new Card();
 
-        //this.card.disableButton();
+        this.card.disable();
     };
     Board.prototype.rollDie = function() {
         this.die.roll();
-        //this.card.enableButton();
+        this.card.enable();
     };
     Board.prototype.drawCard = function() {
-        //var self = this;
-
-        //if ( this.card.getLifeContainerClass() === 'active' ) {
-            this.card.draw();
-            //this.card.setLifeContainerClass('');
-            this.marker.move( this.die.getRoll() );
-        //}
+        this.card.draw();
+        this.card.disable();
+        this.marker.move( this.die.getRoll() );
     };
 
     /******************************************************************************
@@ -181,16 +177,18 @@
             this.totalCards = this.life_cards.getElementsByTagName('li').length;
         }
     };
-    Card.prototype.getLifeContainerClass = function() {
+    Card.prototype.disable = function() {
+        var button;
         if ( this.life_container ) {
-            return this.life_container.className;
-        } else {
-            return '';
+            button = this.life_container.getElementsByTagName('button')[ 0 ];
+            button.setAttribute( 'disabled', 'disabled' );
         }
     };
-    Card.prototype.setLifeContainerClass = function( newClassName ) {
+    Card.prototype.enable = function() {
+        var button;
         if ( this.life_container ) {
-            this.life_container.className = newClassName;
+            button = this.life_container.getElementsByTagName('button')[ 0 ];
+            button.removeAttribute('disabled');
         }
     };
     Card.prototype.activate = function( cardIndex ) {
