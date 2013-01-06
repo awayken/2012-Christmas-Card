@@ -32,7 +32,6 @@
         roll = this.card.currentCardDirection * roll;
         
         this.marker.move( roll );
-        console.log( this.marker.position )
         if ( this.marker.position[ 0 ] === 4 && this.marker.position[ 1 ] === 4 ) {
             document.body.className += ' duh';
         }
@@ -70,8 +69,7 @@
         }
     };
     Marker.prototype.moveTo = function( rowIndex, boxIndex ) {
-        var currentPosition = this.getPosition(),
-            newBox,
+        var newBox,
             newRow = document.getElementById('row_' + ( rowIndex + 1 ) );
 
         // animate to new position
