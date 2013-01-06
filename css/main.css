@@ -236,7 +236,8 @@ textarea {
   }
 }
 body {
-  padding: 0.25em 0.5em;
+  background: url('../img/body.png') repeat left top #7bdcd2;
+  padding: 0.5em 1em;
 }
 a:link,
 a:visited {
@@ -254,6 +255,7 @@ h4,
 h5,
 h6 {
   color: #ff7800;
+  font-family: 'Cabin Condensed', arial, sans-serif;
 }
 .btn {
   background-color: #028996;
@@ -300,13 +302,37 @@ a.btn {
 .btn[disabled]:hover {
   background: #028e9b;
 }
+header {
+  text-align: center;
+}
+header h1 {
+  font-weight: normal;
+  text-transform: uppercase;
+}
+header h1 em {
+  font-style: normal;
+  font-weight: 700;
+}
+body > section,
+header,
+footer {
+  background: white;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.5em 1em;
+}
+body > section h1:first-child,
+header h1:first-child,
+footer h1:first-child,
+body > section h2:first-child,
+header h2:first-child,
+footer h2:first-child {
+  margin-top: 0;
+}
 #board {
   box-sizing: border-box;
   height: 200%;
   margin: 0 auto 2% auto;
-  padding: 1%;
   position: relative;
-  width: 80%;
 }
 #board ol {
   list-style: none;

@@ -5,7 +5,8 @@
 @import "h5bp.less";
 
 body {
-	padding: 0.25em 0.5em;
+	background: url('../img/body.png') repeat left top #7bdcd2;
+	padding: 0.5em 1em;
 }
 
 a {
@@ -20,6 +21,7 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
 	color: @compColor;
+	font-family: 'Cabin Condensed', arial, sans-serif;
 }
 
 .btn {
@@ -50,6 +52,27 @@ h1, h2, h3, h4, h5, h6 {
 		&:hover {
 			background: @primaryColor;
 		}
+	}
+}
+
+header {
+	text-align: center;
+	h1 {
+		font-weight: normal;
+		text-transform: uppercase;
+		em {
+			font-style: normal;
+			font-weight: 700;
+		}
+	}
+}
+
+body > section, header, footer {
+	background: white;
+	background: fade( white, 85% );
+	padding: 0.5em 1em;
+	h1:first-child, h2:first-child {
+		margin-top: 0;
 	}
 }
 
