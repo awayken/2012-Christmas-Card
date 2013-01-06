@@ -1,4 +1,4 @@
-/******************************************************************************
+    /******************************************************************************
     File: Main.js
     The main JavaScript file for the site.
 ******************************************************************************/
@@ -25,9 +25,17 @@
         this.card.enable();
     };
     Board.prototype.drawCard = function() {
+        var roll = this.die.getRoll();
+
         this.card.draw();
         this.card.disable();
-        this.marker.move( this.die.getRoll() );
+        roll = this.card.currentCardDirection * roll;
+        
+        this.marker.move( roll );
+        console.log( this.marker.position )
+        if ( this.marker.position[ 0 ] === 4 && this.marker.position[ 1 ] === 4 ) {
+            document.body.className += ' duh';
+        }
     };
 
     /******************************************************************************
@@ -35,30 +43,20 @@
         Defines the Marker object.
     ******************************************************************************/
     var Marker = function() {
-        // Variable: position
-        // Tracks the current position as row, box
         this.position = [ 0, 0 ];
 
-        // Variable: node
-        // The actual DOM node that represents the marker.
         this.node = document.createElement('div');
         this.node.id = 'marker';
         this.node.innerHTML = '&#9823;<a href="#dice" class="show-dice">Show the die</a>';
 
         this.setup();
     };
-    // Function: getPosition
-    // Getter for <position>
     Marker.prototype.getPosition = function() {
         return this.position;
     };
-    // Function: setPosition
-    // Setter for <position>
     Marker.prototype.setPosition = function( rowIndex, boxIndex ) {
         this.position = [ rowIndex, boxIndex ];
     };
-    // Function: setup
-    // Contains the setup actions.
     Marker.prototype.setup = function() {
         var row = document.getElementById('row_1'),
             box;
@@ -71,14 +69,14 @@
             box.appendChild( this.node );
         }
     };
-    // Function: moveTo
-    // Moves the Marker to a specific position as row, box
     Marker.prototype.moveTo = function( rowIndex, boxIndex ) {
         var currentPosition = this.getPosition(),
             newBox,
             newRow = document.getElementById('row_' + ( rowIndex + 1 ) );
 
         // animate to new position
+
+        this.setPosition( rowIndex, boxIndex );
 
         if ( this.node && this.node.parentNode ) {
             this.node.parentNode.removeChild( this.node );
@@ -88,12 +86,9 @@
             newBox = newRow.getElementsByTagName('li')[ boxIndex ];
             if ( newBox ) {
                 newBox.appendChild( this.node );
-                this.setPosition( rowIndex, boxIndex );
             }
         }
     };
-    // Function: move
-    // Move the Marker a certain number of spaces
     Marker.prototype.move = function( spaces ) {
         var currentPosition = this.getPosition(),
             newRow = currentPosition[ 0 ],
@@ -125,12 +120,8 @@
     var Die = function() {
         var dice = document.getElementById('dice');
 
-        // Variable: roll
-        // Tracks the current die roll
         this.rollValue = 0;
 
-        // Variable: node
-        // The actual DOM node that represents the die.
         this.node = document.createElement('div');
         this.node.id = 'die';
         this.node.className = 'side_0';
@@ -139,18 +130,12 @@
             dice.appendChild( this.node );
         }
     };
-    // Function: getRoll
-    // Getter for <roll>
     Die.prototype.getRoll = function() {
         return this.rollValue;
     };
-    // Function: setRoll
-    // Setter for <roll>
     Die.prototype.setRoll = function( number ) {
         this.rollValue = number;
     };
-    // Function: roll
-    // Get a random number for the roll, call setter & update classname.
     Die.prototype.roll = function() {
         var newRoll = parseInt( ( Math.random() * 100 ) % 6, 10 );
 
@@ -163,9 +148,8 @@
         Defines the Card object.
     ******************************************************************************/
     var Card = function() {
-        // Variable: currentCard
-        // Tracks the current life card
         this.currentCard = 0;
+        this.currentCardDirection = 1;
         this.totalCards = 0;
 
         this.setup();
@@ -204,17 +188,22 @@
         if ( cards && cards.length ) {
             newCard = cards[ cardIndex ];
             oldCard = cards[ this.currentCard ];
+
             this.currentCard = cardIndex;
-            if ( newCard && oldCard ) {
+
+            if ( oldCard ) {
                 oldCard.className = oldCard.className.replace( ' ' + activeClass, '' );
-                if ( cardIndex > 0 ) {
-                    newCard.className += ' ' + activeClass;
+            }
+            if ( newCard && cardIndex > 0 ) {
+                newCard.className += ' ' + activeClass;
+                if ( newCard.className.indexOf('backward') > -1 ) {
+                    this.currentCardDirection = -1;
+                } else {
+                    this.currentCardDirection = 1;
                 }
             }
         }
     };
-    // Function: draw
-    // Get a random number for the current card, call setter & activate card.
     Card.prototype.draw = function() {
         var newCardNumber = parseInt( ( Math.random() * 100 ) % this.totalCards, 10 );
 

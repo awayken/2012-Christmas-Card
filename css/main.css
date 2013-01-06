@@ -845,3 +845,20 @@ footer h2:first-child {
     display: block;
   }
 }
+#winning {
+  background: white;
+  left: 0;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  z-index: 99;
+}
+.duh #game,
+.duh #legend,
+.duh #board {
+  display: none;
+}
+.duh #winning {
+  visibility: visible;
+}
