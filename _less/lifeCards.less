@@ -38,7 +38,7 @@
         height: 100%;
         line-height: 1.5;
         margin: 0 0 1em 0;
-        overflow: hidden;
+        overflow: auto;
         position: relative;
         text-align: left;
         width: 100%;
@@ -55,25 +55,19 @@
 
     .life-image {
         background: black;
-        margin-left: -50%;
-        width: 200%;
+        width: 100%;
         img {
             display: block;
-            height: 100%;
             margin: 0 auto;
+            max-width: 400px;
+            width: 100%;
         }
     }
 
     .life-event {
         .box-sizing( border-box );
-        background: rgba( 255, 255, 255, 0.8 );
-        bottom: 0;
-        max-height: 50%;
-        overflow: auto;
         padding: 0.25em 0.5em;
-        position: absolute;
         width: 100%;
-        z-index: 10;
     }
 
     .drawn {
@@ -92,8 +86,11 @@
 
 @media only screen and (max-width: 35em) {
     #life-cards {
-        height: 400px;
+        height: 570px;
         position: static;
         width: 98%;
+        ul {
+            height: 500px;
+        }
     }
 }

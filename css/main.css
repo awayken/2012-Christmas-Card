@@ -607,7 +607,7 @@ footer h2:first-child {
   height: 100%;
   line-height: 1.5;
   margin: 0 0 1em 0;
-  overflow: hidden;
+  overflow: auto;
   position: relative;
   text-align: left;
   width: 100%;
@@ -621,26 +621,20 @@ footer h2:first-child {
 }
 #life-cards .life-image {
   background: black;
-  margin-left: -50%;
-  width: 200%;
+  width: 100%;
 }
 #life-cards .life-image img {
   display: block;
-  height: 100%;
   margin: 0 auto;
+  max-width: 400px;
+  width: 100%;
 }
 #life-cards .life-event {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.8);
-  bottom: 0;
-  max-height: 50%;
-  overflow: auto;
   padding: 0.25em 0.5em;
-  position: absolute;
   width: 100%;
-  z-index: 10;
 }
 #life-cards .drawn {
   position: absolute;
@@ -655,9 +649,12 @@ footer h2:first-child {
 }
 @media only screen and (max-width: 35em) {
   #life-cards {
-    height: 400px;
+    height: 570px;
     position: static;
     width: 98%;
+  }
+  #life-cards ul {
+    height: 500px;
   }
 }
 #dice {
