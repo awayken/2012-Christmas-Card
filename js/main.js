@@ -1,4 +1,4 @@
-    /******************************************************************************
+/******************************************************************************
     File: Main.js
     The main JavaScript file for the site.
 ******************************************************************************/
@@ -93,11 +93,15 @@
             newBox = currentPosition[ 1 ] + spaces;
 
         if ( newBox > 4 ) {
-            newBox = newBox % 5;
-            newRow++;
+            while ( newBox > 4 ) {
+                newBox = newBox - 5;
+                newRow++;
+            }
         } else if ( newBox < 0 ) {
-            newBox = newBox % -5;
-            newRow--;
+            while ( newBox < 0 ) {
+                newBox = 5 + newBox;
+                newRow--;
+            }
         }
 
         if ( newRow > 4 ) {
@@ -107,7 +111,7 @@
             newRow = 0;
             newBox = 0;
         }
-
+        
         this.moveTo( newRow, newBox );
     };
 

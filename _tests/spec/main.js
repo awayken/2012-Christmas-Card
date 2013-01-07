@@ -124,7 +124,9 @@ describe('Game', function() {
                 expect( marker.node.parentNode ).toBe( box_1_1 );
                 marker.move( 6 );
                 expect( marker.node.parentNode ).toBe( box_2_2 );
-                marker.move( 3 );
+                marker.move( -2 );
+                expect( marker.node.parentNode ).toBe( box_1_5 );
+                marker.move( 5 );
                 expect( marker.node.parentNode ).toBe( box_2_5 );
             });
 
