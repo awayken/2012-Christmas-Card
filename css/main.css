@@ -343,6 +343,8 @@ footer h2:first-child {
   margin-top: 0;
 }
 #board {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: 200%;
   margin: 0 auto 2% auto;
@@ -355,6 +357,8 @@ footer h2:first-child {
   position: absolute;
 }
 #board li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   line-height: 6;
   text-align: center;
@@ -619,11 +623,7 @@ footer h2:first-child {
   font-size: 3em;
   text-align: center;
 }
-#life-cards .life-image {
-  background: white;
-  width: 100%;
-}
-#life-cards .life-image img {
+#life-cards img {
   display: block;
   margin: 0 auto;
   max-height: 80%;
@@ -680,10 +680,12 @@ footer h2:first-child {
   text-align: center;
 }
 #die {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   background: white;
   border: 1px solid black;
   border-radius: 0.35em;
-  box-sizing: border-box;
   height: 50px;
   margin: 1em auto 0 auto;
   overflow: hidden;
@@ -858,11 +860,14 @@ footer h2:first-child {
   position: absolute;
   top: 0;
   visibility: hidden;
+  width: 100%;
   z-index: 99;
 }
+.duh header,
 .duh #game,
 .duh #legend,
-.duh #board {
+.duh #board,
+.duh footer {
   display: none;
 }
 .duh #winning {
