@@ -626,8 +626,8 @@ footer h2:first-child {
 #life-cards .life-image img {
   display: block;
   margin: 0 auto;
-  max-width: 400px;
-  width: 100%;
+  max-height: 80%;
+  max-width: 100%;
 }
 #life-cards .life-event {
   -webkit-box-sizing: border-box;
