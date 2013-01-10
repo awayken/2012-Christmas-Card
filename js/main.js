@@ -41,10 +41,20 @@
     Board.prototype.watchHeight = function() {
         var board = this,
             dice = document.getElementById('dice'),
-            lifeCards = document.getElementById('life-cards');
+            lifeCards = document.getElementById('life-cards'),
+            topLimit = 700,
+            scrollY = 0;
+
+        if ( document.documentElement.scrollTop ) {
+            topLimit = document.documentElement.clientHeight * 0.6;
+            scrollY = document.documentElement.scrollTop;
+        } else if ( document.body.scrollTop ) {
+            topLimit = document.body.clientHeight * 0.6;
+            scrollY = document.body.scrollTop;
+        }
 
         window.setTimeout( function() {
-            if ( window.scrollY >= 700 ) {
+            if ( scrollY >= topLimit ) {
                 dice.className = 'lower';
                 lifeCards.className = 'lower';
             } else {
