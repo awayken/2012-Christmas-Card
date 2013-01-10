@@ -19,6 +19,8 @@
         this.card = new Card();
 
         this.card.disable();
+
+        this.watchHeight();
     };
     Board.prototype.rollDie = function() {
         this.die.roll();
@@ -35,6 +37,23 @@
         if ( this.marker.position[ 0 ] === 4 && this.marker.position[ 1 ] === 4 ) {
             document.body.className += ' duh';
         }
+    };
+    Board.prototype.watchHeight = function() {
+        var board = this,
+            dice = document.getElementById('dice'),
+            lifeCards = document.getElementById('life-cards');
+
+        window.setTimeout( function() {
+            if ( window.scrollY >= 700 ) {
+                dice.className = 'lower';
+                lifeCards.className = 'lower';
+            } else {
+                dice.className = '';
+                lifeCards.className = '';
+            }
+
+            board.watchHeight();
+        }, 100 );
     };
 
     /******************************************************************************

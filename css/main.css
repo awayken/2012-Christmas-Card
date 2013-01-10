@@ -666,6 +666,11 @@ footer h2:first-child {
   top: 12%;
   width: 32%;
 }
+#dice.lower {
+  bottom: 12%;
+  left: 23%;
+  top: auto;
+}
 #dice .show-marker {
   text-align: center;
 }
