@@ -58,10 +58,12 @@ h1, h2, h3, h4, h5, h6 {
 .show-{
 	&dice, &marker {
     	display: none;
+    	text-align: center;
     	@media only screen and (max-width: 35em) {
     		display: block;
     		li& {
     			display: list-item;
+    			text-align: left;
     		}
     	}
 	}
