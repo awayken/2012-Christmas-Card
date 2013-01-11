@@ -274,10 +274,11 @@ h6 {
   cursor: pointer;
   display: block;
   font-size: 1em;
-  line-height: 1;
+  line-height: 1.5;
   margin: 0.5em auto;
   padding: 0.25em 0.5em;
   text-align: center;
+  text-transform: uppercase;
   width: 85%;
 }
 a.btn {
@@ -320,6 +321,9 @@ a.btn {
 }
 header {
   text-align: center;
+}
+header a:link {
+  text-decoration: none;
 }
 header h1 {
   font-weight: normal;

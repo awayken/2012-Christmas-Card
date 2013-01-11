@@ -46,10 +46,10 @@
             scrollY = 0;
 
         if ( document.documentElement.scrollTop ) {
-            topLimit = document.documentElement.clientHeight * 0.6;
+            topLimit = document.documentElement.clientHeight * 0.65;
             scrollY = document.documentElement.scrollTop;
         } else if ( document.body.scrollTop ) {
-            topLimit = document.body.clientHeight * 0.6;
+            topLimit = document.body.clientHeight * 0.65;
             scrollY = document.body.scrollTop;
         }
 
